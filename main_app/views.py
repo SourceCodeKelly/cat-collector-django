@@ -4,6 +4,7 @@ from django.views import View #
 from django.http import HttpResponse
 from django.views.generic.base import TemplateView
 from .models import Cat
+from django.views.generic.edit import CreateView
 
 # Create your views here.
 class Home(TemplateView):
@@ -29,4 +30,8 @@ class CatList(TemplateView):
             context['header'] = "Popular Cat Breeds"
         return context 
         
-        
+class CatCreate(CreateView):
+    model = Cat
+    fields = ['name', 'img', 'height', 'weight', 'lifespan', 'intelligence', 'activity', 'coat', 'vocalness', 'info']
+    template_name = 'cat_create.html'
+    success_url = '/cats/'

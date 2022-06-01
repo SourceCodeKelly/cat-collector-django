@@ -18,7 +18,8 @@
       </div>
     </div>
     <!--  This anchor tag will redirect back to cat list without a query param -->
-    <a class="button is-dark" href="{% url 'cat_list' %}">Clear Search</a>
+    <a class="button is-white" href="{% url 'cat_list' %}">Clear Search</a>
+    <a class="button is-dark" href="{% url 'cat_create' %}">Add Cat</a>
   </form>
 <div class="gallery">
   {% for cat in cats %}

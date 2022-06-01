@@ -1,0 +1,48 @@
+body {
+    background-color: #EBEBD3;
+    color: #DA4167;
+    min-height: 100vh;
+}
+
+.navbar {
+    background-color: #083D77;
+}
+
+
+.navbar-burger {
+    color: white;
+}
+
+.navbar-item {
+    color: #DA4167;
+}
+
+h1,
+h2,
+h3 {
+    color: #083D77;
+}
+
+.title {
+    color: #ffffff;
+}
+
+.gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    justify-content: center;
+    gap: 30px;
+}
+
+.gallery .card {
+    transition: .1s linear;
+}
+
+.gallery .card:hover {
+    transform: scale(1.1);
+    z-index: 10;
+}
+
+p {
+    font-size: 12px;
+}

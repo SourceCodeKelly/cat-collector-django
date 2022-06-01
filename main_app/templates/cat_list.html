@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+
+{% comment %} for head title tags and helping us with SEO {% endcomment %}
+{% block title %}Cats{% endblock  %}
+
+{% block content %}
+
+<h1 class="title pt-5">Popular Cat Breeds</h1>
+<div class="gallery">
+  {% for cat in cats %}
+  <a href="">
+    <div class="card">
+      <div class="card-image">
+        <figure class="image is-square">
+          <img src="{{cat.image}}" alt="{{cat.name}}" />
+        </figure>
+      </div>
+      <div class="card-header">
+        <p class="card-header-title">{{cat.name}}</p>
+      </div>
+    </div>
+  </a>
+	{% empty %}
+  <article class="message">
+    <div class="message-header">
+      <p>No Cats Available</p>
+    </div>
+  </article>
+  {% endfor %}
+</div>
+{% endblock %}

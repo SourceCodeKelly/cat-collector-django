@@ -19,7 +19,14 @@ class CatList(TemplateView):
     
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        context['cats'] = Cat.objects.all()
+        name = self.request.GET.get('name')
+        
+        if name != None:
+            context['cats'] = Cat.objects.filter(name__icontains=name)
+            context['header'] = f'Searching for {name}'
+        else:
+            context['cats'] = Cat.objects.all()
+            context['header'] = "Popular Cat Breeds"
         return context 
         
         

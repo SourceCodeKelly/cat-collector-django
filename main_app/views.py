@@ -4,7 +4,7 @@ from django.views import View #
 from django.http import HttpResponse
 from django.views.generic.base import TemplateView
 from .models import Cat
-from django.views.generic.edit import CreateView
+from django.views.generic.edit import CreateView, UpdateView
 from django.views.generic import DetailView
 
 # Create your views here.
@@ -40,3 +40,9 @@ class CatCreate(CreateView):
 class CatDetails(DetailView):
     model = Cat
     template_name = 'cat_details.html'
+    
+class CatUpdate(UpdateView):
+    model = Cat
+    fields = ['name', 'img', 'height', 'weight', 'lifespan', 'intelligence', 'activity', 'coat', 'vocalness', 'info']
+    template_name = 'cat_update.html'
+    success_url = '/cats/'

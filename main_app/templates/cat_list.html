@@ -23,7 +23,7 @@
   </form>
 <div class="gallery">
   {% for cat in cats %}
-  <a href="">
+  <a href="{% url 'cat_details' cat.pk %}">
     <div class="card">
       <div class="card-image">
         <figure class="image is-square">

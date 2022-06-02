@@ -2,6 +2,7 @@ body {
     background-color: #EBEBD3;
     color: #DA4167;
     min-height: 100vh;
+    margin-bottom: 10vh;
 }
 
 .navbar {
@@ -29,20 +30,64 @@ h3 {
 
 .gallery {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
     justify-content: center;
     gap: 30px;
 }
 
 .gallery .card {
+    border: 3px solid #DA4167;
     transition: .1s linear;
 }
 
 .gallery .card:hover {
-    transform: scale(1.1);
+    box-shadow: 0 0 15px #F4D35E;
+    transform: scale(1.05);
     z-index: 10;
 }
 
 p {
     font-size: 12px;
 }
+
+.detail__img {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 500px;
+    background-color: #ffffff;
+    overflow: hidden;
+  }
+  
+  .detail__img::after {
+    content: "";
+    background-image: linear-gradient(transparent 60%, #1f1f1f);
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 5;
+  }
+  
+  img {
+    width: 100%;
+    height: 500px;
+    object-fit: cover;
+    object-position: top;
+  }
+  
+  .detail__name {
+    position: absolute;
+    z-index: 5;
+    top: 400px;
+  }
+  
+  .detail__container {
+    margin-top: 500px;
+  }
+
+  .container {
+      padding: 3vh 1vw 5vh 1vw;
+  }

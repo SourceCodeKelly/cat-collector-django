@@ -1,0 +1,38 @@
+{% extends 'base.html' %} 
+{% block content %}
+<div class="detail__img">
+    <img src="{{cat.img}}" alt="{{cat.name}}" />
+</div>
+<div class="detail__name">
+    <h1 class="title">{{cat.name}}</h1>
+</div>
+<div class="detail__container">
+    <div class="buttons">
+        <a href="" class="button is-info">Edit 
+            <span class="icon">
+                <i class="fas fa-edit"></i>
+            </span>
+        </a>
+        <a href="" class="button is-danger">Delete 
+            <span class="icon">
+                <i class="fas fa-trash-alt"></i>
+            </span>
+        </a>
+    </div>
+    <div class="detail__about">
+        <h4 class="title is-4">Traits</h4>
+        <p>Height: {{cat.height}}</p>
+        <p>Weight: {{cat.weight}}</p>
+        <p>Life Span: {{cat.lifespan}}</p>
+        <p>Intelligence: {{cat.intelligence}}</p>
+        <p>Activity Level: {{cat.activity}}</p>
+        <p>Vocalness: {{cat.vocalness}}</p>
+        <p>Coat Length: {{cat.coat}}</p>
+    </div>
+    <div class="detail__about">
+        <h4 class="title is-4">About</h4>
+        <p>{{cat.info}}</p>
+    </div>
+</div>
+
+{% endblock %}

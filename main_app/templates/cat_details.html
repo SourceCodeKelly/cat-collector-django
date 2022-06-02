@@ -18,21 +18,65 @@
                 <i class="fas fa-trash-alt"></i>
             </span>
         </a>
+        
     </div>
+
     <div class="detail__about">
-        <h4 class="title is-4">Traits</h4>
-        <p>Height: {{cat.height}}</p>
-        <p>Weight: {{cat.weight}}</p>
-        <p>Life Span: {{cat.lifespan}}</p>
-        <p>Intelligence: {{cat.intelligence}}</p>
-        <p>Activity Level: {{cat.activity}}</p>
-        <p>Vocalness: {{cat.vocalness}}</p>
-        <p>Coat Length: {{cat.coat}}</p>
+        <p>{{cat.info}}</p>
     </div>
     <br>
-    <div class="detail__about">
-        <h4 class="title is-4">About</h4>
-        <p>{{cat.info}}</p>
+    <div class="trait">
+        <h4 class="title is-4">Traits</h4>
+        <p><b>Height:</b> {{cat.height}}</p>
+        <p><b>Weight:</b> {{cat.weight}}</p>
+        <p><b>Life Span:</b> {{cat.lifespan}}</p>
+        <p><b>Intelligence:</b> {{cat.intelligence}}</p>
+        <p><b>Activity Level:</b> {{cat.activity}}</p>
+        <p><b>Vocalness:</b> {{cat.vocalness}}</p>
+        <p><b>Coat Length:</b> {{cat.coat}}</p>
+    </div>
+    <br>
+ 
+    <div class="detail__other mb-5">
+        <h3 class="title is-4">Other Traits</h3>
+        <form class="mb-5" action="{% url 'trait_create' cat.pk %}" method="post">
+            {% csrf_token %}
+            <div class="field has-addons">
+                <div class="control">
+                    <input
+                        class="input"
+                        type="text"
+                        name="other_trait"
+                        placeholder="Trait"
+                        required
+                    />
+                </div>
+                <div class="control">
+                    <input
+                        class="input"
+                        type="text"
+                        name="trait_info"
+                        placeholder="Trait info"
+                        required
+                    />
+                </div>
+                <div class="control">
+                    <input class="button is-primary" type="submit" value="Add Trait" />
+                </div>
+            </div>
+        </form>
+        {% for trait in cat.other_traits.all %}
+        <div class="trait">
+            <p><b>{{trait.other_trait}}: </b><span>{{trait.trait_info}}</span></p>        
+        </div>
+            {% empty %}
+        <article class="message">
+        <div class="message-header">
+            <p>No Other Traits Available</p>
+        </div>
+        </article>
+
+        {% endfor %}
     </div>
 </div>
 

@@ -1,9 +1,9 @@
-from django.shortcuts import render
+from django.shortcuts import redirect
 from django.template import Template
-from django.views import View #
+from django.views import View
 from django.http import HttpResponse
 from django.views.generic.base import TemplateView
-from .models import Cat
+from .models import Cat, OtherTraits
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from django.views.generic import DetailView
 from django.urls import reverse
@@ -56,3 +56,12 @@ class CatDelete(DeleteView):
     model = Cat
     template_name = 'cat_delete.html'
     success_url = '/cats/'
+    
+class TraitCreate(View):
+    
+    def post(self, request, pk):
+        other_trait = request.POST.get('other_trait')
+        trait_info = request.POST.get('trait_info')
+        cat = Cat.objects.get(pk=pk)
+        OtherTraits.objects.create(other_trait=other_trait, trait_info=trait_info, cat=cat)
+        return redirect('cat_details', pk=pk)

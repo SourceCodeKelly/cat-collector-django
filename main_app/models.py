@@ -21,3 +21,11 @@ class Cat(models.Model):
     class Meta:
         ordering = ['name']
         
+class OtherTraits(models.Model):
+    
+    other_trait = models.CharField(max_length=20)
+    trait_info = models.TextField(max_length=500)
+    cat = models.ForeignKey(Cat, on_delete=models.CASCADE, related_name='other_traits')
+    
+    def __str(self):
+        return self.other_trait

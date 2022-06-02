@@ -4,8 +4,9 @@ from django.views import View #
 from django.http import HttpResponse
 from django.views.generic.base import TemplateView
 from .models import Cat
-from django.views.generic.edit import CreateView, UpdateView
+from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from django.views.generic import DetailView
+from django.urls import reverse
 
 # Create your views here.
 class Home(TemplateView):
@@ -35,7 +36,9 @@ class CatCreate(CreateView):
     model = Cat
     fields = ['name', 'img', 'height', 'weight', 'lifespan', 'intelligence', 'activity', 'coat', 'vocalness', 'info']
     template_name = 'cat_create.html'
-    success_url = '/cats/'
+    
+    def get_success_url(self):
+        return reverse('cat_details', kwargs={'pk': self.object.pk})
     
 class CatDetails(DetailView):
     model = Cat
@@ -45,4 +48,11 @@ class CatUpdate(UpdateView):
     model = Cat
     fields = ['name', 'img', 'height', 'weight', 'lifespan', 'intelligence', 'activity', 'coat', 'vocalness', 'info']
     template_name = 'cat_update.html'
+    
+    def get_success_url(self):
+        return reverse('cat_details', kwargs={'pk': self.object.pk})
+    
+class CatDelete(DeleteView):
+    model = Cat
+    template_name = 'cat_delete.html'
     success_url = '/cats/'

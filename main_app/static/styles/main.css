@@ -1,6 +1,6 @@
 body {
     background-color: #EBEBD3;
-    color: #DA4167;
+    color: #083D77;
     min-height: 100vh;
     margin-bottom: 10vh;
 }
@@ -58,9 +58,9 @@ p {
     height: 500px;
     background-color: #ffffff;
     overflow: hidden;
-  }
+}
   
-  .detail__img::after {
+.detail__img::after {
     content: "";
     background-image: linear-gradient(transparent 60%, #1f1f1f);
     position: absolute;
@@ -69,25 +69,30 @@ p {
     width: 100%;
     height: 100%;
     z-index: 5;
-  }
-  
-  img {
+}
+
+img {
     width: 100%;
     height: 500px;
     object-fit: cover;
     object-position: top;
-  }
-  
-  .detail__name {
+}
+
+.detail__name {
     position: absolute;
     z-index: 5;
     top: 400px;
-  }
-  
-  .detail__container {
-    margin-top: 500px;
-  }
+}
 
-  .container {
-      padding: 3vh 1vw 5vh 1vw;
-  }
+.detail__about p {
+    font-size: 15px;
+}
+
+
+.detail__container {
+    margin-top: 500px;
+}
+
+.container {
+    padding: 3vh 1vw 5vh 1vw;
+}

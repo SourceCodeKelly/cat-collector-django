@@ -1,8 +1,12 @@
 {% extends 'base.html' %} {% block content %}
-<h1 class='pt-3'>Update {{cat.name}}</h1>
 
-<form action='' method='post'>
-    {% csrf_token %} {{form.as_p}} <input type='submit' value='Submit' />
-</form>
+<div class="cat-update">
+    <h1 class='title is-4'>Update {{cat.name}}</h1>
+    <form action='' method='post'>
+        {% csrf_token %} {{form.as_p}} 
+        <input type='submit' value='Submit' />
+    </form>
+</div>
+
 
 {% endblock %}

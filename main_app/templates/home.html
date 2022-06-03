@@ -1,4 +1,34 @@
 {% extends 'base.html' %}
 {% block content %}
-<h1>Cat Collector Home</h1>
+<div class="home__lists">
+    {% for list in lists %}
+
+        <div class="list mb-5">
+            <h3 class="title is-3 has-text-success">{{list.title}}</h3>
+            <hr />
+
+            {% for cat in list.cats.all %}
+
+                <div class="cat">
+                    <div class="cat-img">
+                        <a href="{% url 'cat_details' cat.pk %}">
+                            <img class="list_image" src={{cat.img}} alt={{cat.name}} />
+                        </a>
+                    </div>
+                    <div class="cat_preview">
+                        <h2><span>{{forloop.counter}}. </span><b>{{cat.name}}</b></h2>
+                        <h4>{{cat.preview}}<br><a href="{% url 'cat_details' cat.pk %}">Read More</a></h4>
+                    </div>                
+                </div>
+                <hr>
+
+            {% endfor %}
+            <div class="see_cats">
+                <a href="/cats" ><h2><b class="see-c">See all cats</b></h2></a>
+            </div>
+        </div>
+    {% empty %} 
+        <div class="list mb-5">"There are no cats in this list"</div>
+    {% endfor %}
+</div>
 {% endblock %}

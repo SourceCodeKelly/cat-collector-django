@@ -13,7 +13,8 @@ class Cat(models.Model):
     activity = models.CharField(max_length=15)
     coat = models.CharField(max_length=15)
     vocalness = models.CharField(max_length=20)
-    info = models.TextField(max_length=1000)
+    info = models.TextField(max_length=1500)
+    preview = models.TextField(max_length=500)
     
     def __str__(self):
         return self.name
@@ -29,3 +30,10 @@ class OtherTraits(models.Model):
     
     def __str(self):
         return self.other_trait
+    
+class List(models.Model):
+    title = models.CharField(max_length=150)
+    cats = models.ManyToManyField(Cat)
+    
+    def __str__(self):
+        return self.title

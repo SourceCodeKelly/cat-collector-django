@@ -7,6 +7,10 @@
     <h1 class="title">{{cat.name}}</h1>
 </div>
 <div class="detail__container">
+    <div>
+        <h4>{{cat.preview}}</p>
+    </div>
+    <br>
     <div class="buttons">
         <a href="{% url 'cat_update' cat.pk %}" class="button is-info">Edit 
             <span class="icon">
@@ -22,6 +26,7 @@
     </div>
 
     <div class="detail__about">
+        <h3 class="title is-4">About</h3>
         <p>{{cat.info}}</p>
     </div>
     <br>

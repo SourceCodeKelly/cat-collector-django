@@ -3,7 +3,7 @@ from django.template import Template
 from django.views import View
 from django.http import HttpResponse
 from django.views.generic.base import TemplateView
-from .models import Cat, OtherTraits
+from .models import Cat, OtherTraits, List
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from django.views.generic import DetailView
 from django.urls import reverse
@@ -11,6 +11,11 @@ from django.urls import reverse
 # Create your views here.
 class Home(TemplateView):
     template_name = 'home.html'
+    
+    def get_context_data(self, **kwargs):
+         context = super().get_context_data(**kwargs)
+         context['lists'] = List.objects.all()
+         return context
     
 #...
 class About(TemplateView):

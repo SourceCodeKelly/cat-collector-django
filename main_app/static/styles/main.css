@@ -3,10 +3,12 @@ body {
     color: #083D77;
     min-height: 100vh;
     margin-bottom: 10vh;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 
 .navbar {
     background-color: #083D77;
+    padding: 0 10px 0 10px;
 }
 
 
@@ -22,6 +24,7 @@ h1,
 h2,
 h3 {
     color: #083D77;
+    font-size: larger;
 }
 
 .title {
@@ -36,7 +39,6 @@ h3 {
 }
 
 .gallery .card {
-    border: 3px solid #DA4167;
     transition: .1s linear;
 }
 
@@ -71,7 +73,7 @@ p {
     z-index: 5;
 }
 
-img {
+.card-cat {
     width: 100%;
     height: 500px;
     object-fit: cover;
@@ -98,4 +100,34 @@ img {
 
 .container {
     padding: 3vh 1vw 5vh 1vw;
+}
+
+.list {
+    margin-left: 10px;
+}
+
+
+.cat-img {
+    width: 420px;
+    margin-left: 20px;
+}
+
+.cat {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+}
+
+.cat_preview {
+    width: 420px;
+    padding: 10px 0px 10px 20px;
+}
+
+.see_cats {
+    text-align: center;
+}
+
+.see-c:hover {
+    color: #DA4167;
+    text-decoration: underline;
 }
